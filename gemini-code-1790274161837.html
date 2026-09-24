@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST FOR UNIT 20 - BÀI KIỂM TRA TỔNG HỢP (50 CÂU) - Ms Lê Hằng English</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatPattern {
+            from { background-position: 0 0; }
+            to { background-position: 120px 240px; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        body {
+            font-family: 'Quicksand', 'Nunito', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #8B5CF6, #3B82F6, #EC4899, #10B981);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            padding: 24px 12px;
+            position: relative;
+            color: #2D3748;
+            overflow-x: hidden;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.22'%3E%3Cpath d='M11 18l3 6 6 3-6 3-3 6-3-6-6-3 6-3z'/%3E%3Cpath d='M70 60l2 4 4 2-4 2-2 4-2-4-4-2 4-2z'/%3E%3Ccircle cx='40' cy='70' r='5'/%3E%3Ccircle cx='80' cy='20' r='6'/%3E%3Cpath d='M45 20c-3 0-5 2-5 5s2 5 5 5 5-2 5-5-2-5-5-5z'/%3E%3C/g%3E%3C/svg%3E");
+            animation: floatPattern 20s linear infinite;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .teacher-badge {
+            display: inline-block;
+            background: #ffffff;
+            color: #8B5CF6;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .main-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 6px;
+        }
+
+        .warning-box {
+            background: #FFF3BF;
+            border: 3px dashed #FAB005;
+            border-radius: 20px;
+            padding: 18px 22px;
+            text-align: center;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .warning-title {
+            color: #D9480F;
+            font-weight: 900;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .warning-text {
+            color: #495057;
+            font-size: 0.98rem;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        .warning-highlight {
+            color: #E67E22;
+            font-weight: 900;
+            margin-top: 6px;
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .section-header-title {
+            background: #2D3748;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.2rem;
+            padding: 12px 20px;
+            border-radius: 16px;
+            margin: 35px 0 18px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .question-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 26px 30px;
+            margin-bottom: 26px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .question-card.shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .question-number {
+            background: #8B5CF6;
+            color: white;
+            font-weight: 900;
+            font-size: 1rem;
+            padding: 6px 16px;
+            border-radius: 14px;
+            margin-right: 12px;
+            box-shadow: 0 3px 0 #6D28D9;
+            flex-shrink: 0;
+        }
+
+        .question-instruction {
+            font-weight: 800;
+            color: #4A5568;
+            font-size: 0.95rem;
+        }
+
+        .question-text {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: #2D3748;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            white-space: pre-line;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background-color: #F7FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 18px;
+            padding: 14px 20px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #2D3748;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #CBD5E0;
+            transition: all 0.15s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            line-height: 1.4;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 0 #CBD5E0;
+            background-color: #EDF2F7;
+        }
+
+        .option-btn:active:not(:disabled) {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #CBD5E0;
+        }
+
+        .option-btn.correct {
+            background-color: #00D26A !important;
+            color: white !important;
+            border-color: #00B85C !important;
+            box-shadow: 0 5px 0 #00994D !important;
+        }
+
+        .option-btn.wrong {
+            background-color: #FF4757 !important;
+            color: white !important;
+            border-color: #E03947 !important;
+            box-shadow: 0 5px 0 #C0392B !important;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            opacity: 0.95;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 22px;
+            background: #EBF8FF;
+            border: 2px solid #63B3ED;
+            border-radius: 18px;
+            padding: 22px;
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        .explanation-title {
+            font-weight: 900;
+            color: #2B6CB0;
+            font-size: 1.1rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px dashed #90CDF4;
+            padding-bottom: 8px;
+        }
+
+        .exp-section {
+            margin-bottom: 14px;
+        }
+
+        .exp-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-section-title {
+            font-weight: 800;
+            color: #2D3748;
+            margin-bottom: 6px;
+            font-size: 1.02rem;
+        }
+
+        .options-breakdown-list {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 6px 0;
+            border: 1px solid #CBD5E0;
+        }
+
+        .option-breakdown-item {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #4A5568;
+            line-height: 1.5;
+        }
+
+        .option-breakdown-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .submit-btn {
+            background: #8B5CF6;
+            color: white;
+            font-size: 1.45rem;
+            font-weight: 900;
+            padding: 18px 54px;
+            border: none;
+            border-radius: 28px;
+            box-shadow: 0 8px 0 #6D28D9;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 0 #6D28D9;
+            background: #A78BFA;
+        }
+
+        .submit-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 #6D28D9;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 28px;
+            padding: 35px 28px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            position: relative;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-score {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #8B5CF6;
+            margin: 15px 0;
+        }
+
+        .modal-feedback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2D3748;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            background: #F7FAFC;
+            padding: 18px;
+            border-radius: 18px;
+            border: 2px solid #E2E8F0;
+        }
+
+        .modal-close-btn {
+            background: #8B5CF6;
+            color: white;
+            font-weight: 900;
+            font-size: 1.15rem;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 5px 0 #6D28D9;
+            cursor: pointer;
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="teacher-badge">Giáo viên tạo: Ms Lê Hằng English</div>
+            <h1 class="main-title">TEST FOR UNIT 20 - BÀI KIỂM TRA TỔNG HỢP (50 CÂU)</h1>
+        </header>
+
+        <!-- Warning Box -->
+        <div class="warning-box">
+            <div class="warning-title">⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</div>
+            <div class="warning-text">
+                Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng và cấu trúc mới vào vở để học thì mới thực sự giỏi lên.<br>
+                Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+                <span class="warning-highlight">* Kéo tới đâu, làm tới đó! *</span>
+            </div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container"></div>
+
+        <!-- Submit Button -->
+        <div class="submit-section">
+            <button class="submit-btn" onclick="submitQuiz()">🎉 NỘP BÀI THI 🎉</button>
+        </div>
+    </div>
+
+    <!-- Modal Score Popup -->
+    <div class="modal-overlay" id="scoreModal">
+        <div class="modal-content">
+            <h2 style="font-size:1.8rem; font-weight:900; color:#2D3748;">KẾT QUẢ BÀI THI</h2>
+            <div class="modal-score" id="scoreDisplay">0 / 50</div>
+            <div class="modal-feedback" id="feedbackDisplay"></div>
+            <button class="modal-close-btn" onclick="closeModal()">Xem lại bài làm</button>
+        </div>
+    </div>
+
+    <script>
+        const rawQuizData = [
+            // ERROR IDENTIFICATION (1 - 5)
+            {
+                id: 1,
+                section: "ERROR IDENTIFICATION",
+                instruction: "ERROR IDENTIFICATION (Tìm lỗi sai trong câu)",
+                text: "Question 1. Nothing will be done because no one in ability takes the matter seriously.",
+                options: [
+                    "done",
+                    "the",
+                    "ability",
+                    "seriously"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Không có gì sẽ được thực hiện vì không ai có thẩm quyền đứng ra giải quyết vấn đề này một cách nghiêm túc.",
+                optionsBreakdown: [
+                    "A. done (phân từ 2 của do): đúng cấu trúc bị động will be done.",
+                    "B. the (mạo từ xác định): đứng trước danh từ matter.",
+                    "C. ability (danh từ): khả năng, năng lực (bị dùng sai cụm từ).",
+                    "D. seriously (trạng từ): bổ nghĩa cho động từ takes."
+                ],
+                whyCorrect: "Cụm từ cố định chỉ người có thẩm quyền/chức vụ là 'in authority'. Việc dùng 'in ability' ở đây là sai cụm từ và phải sửa thành 'in authority'.",
+                whyOthersWrong: "Các phương án done, the, seriously đều được sử dụng hoàn toàn chính xác theo đúng quy tắc ngữ pháp."
+            },
+            {
+                id: 2,
+                section: "ERROR IDENTIFICATION",
+                instruction: "ERROR IDENTIFICATION (Tìm lỗi sai trong câu)",
+                text: "Question 2. If there is a power in your school, you have got to make her stop bullying people.",
+                options: [
+                    "power",
+                    "stop",
+                    "bullying",
+                    "have got"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Nếu có một kẻ hay bắt nạt ở trường của bạn, bạn phải làm cho cô ta ngừng bắt nạt người khác.",
+                optionsBreakdown: [
+                    "A. power (danh từ): sức mạnh, quyền lực (bị dùng sai từ loại/nghĩa).",
+                    "B. stop (động từ nguyên mẫu): đứng sau cấu trúc make somebody V.",
+                    "C. bullying (danh động từ): đứng sau động từ stop V-ing.",
+                    "D. have got (trợ động từ): trong cụm have got to V (phải làm gì)."
+                ],
+                whyCorrect: "Dựa vào ngữ cảnh 'stop bullying people' (ngừng bắt nạt người khác), danh từ chỉ đối tượng ở đây phải là 'a bully' (kẻ hay bắt nạt) chứ không phải 'a power'. Do đó 'power' sai và cần sửa thành 'bully'.",
+                whyOthersWrong: "Các từ stop, bullying, have got đều đúng cấu trúc ngữ pháp và sự kết hợp từ."
+            },
+            {
+                id: 3,
+                section: "ERROR IDENTIFICATION",
+                instruction: "ERROR IDENTIFICATION (Tìm lỗi sai trong câu)",
+                text: "Question 3. He will need to clash his nerves to progress in this competition.",
+                options: [
+                    "competition",
+                    "in",
+                    "to",
+                    "clash"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Anh ấy sẽ cần phải xốc lại tinh thần / rèn luyện sự can đảm để tiến xa trong cuộc thi này.",
+                optionsBreakdown: [
+                    "A. competition (danh từ): cuộc thi đấu.",
+                    "B. in (giới từ): đi với competition.",
+                    "C. to (giới từ/động từ nguyên mẫu): chỉ mục đích to progress.",
+                    "D. clash (động từ): va chạm, xung đột (bị dùng sai thành ngữ)."
+                ],
+                whyCorrect: "Thành ngữ cố định chỉ việc chuẩn bị tinh thần dũng cảm đối mặt với thử thách là 'steel one's nerves'. Động từ 'clash' dùng sai thành ngữ và phải sửa thành 'steel'.",
+                whyOthersWrong: "Các từ competition, in, to đều đúng chức năng từ loại và ngữ pháp trong câu."
+            },
+            {
+                id: 4,
+                section: "ERROR IDENTIFICATION",
+                instruction: "ERROR IDENTIFICATION (Tìm lỗi sai trong câu)",
+                text: "Question 4. The minister has resigned amid continuing chat over his education proposals.",
+                options: [
+                    "proposals",
+                    "chat",
+                    "his",
+                    "resigned"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Bộ trưởng đã từ chức giữa lúc cuộc tranh cãi gay gắt kéo dài về các đề xuất giáo dục của ông.",
+                optionsBreakdown: [
+                    "A. proposals (danh từ số nhiều): các đề xuất.",
+                    "B. chat (danh từ): cuộc trò chuyện phiếm (bị dùng sai từ trong ngữ cảnh chính trị).",
+                    "C. his (tính từ sở hữu): thuộc về ông ấy.",
+                    "D. resigned (động từ quá khứ phân từ): từ chức."
+                ],
+                whyCorrect: "Từ 'chat' chỉ sự nói chuyện phiếm thân mật, không phù hợp với ngữ cảnh tranh cãi chính trị căng thẳng khiến bộ trưởng phải từ chức. Phải sửa 'chat' thành 'row' hoặc 'controversy' (cuộc tranh cãi gay gắt).",
+                whyOthersWrong: "Các từ proposals, his, resigned đều chuẩn xác về mặt từ loại và thì ngữ pháp."
+            },
+            {
+                id: 5,
+                section: "ERROR IDENTIFICATION",
+                instruction: "ERROR IDENTIFICATION (Tìm lỗi sai trong câu)",
+                text: "Question 5. The insurance market is totally authorised by the private pension organizations.",
+                options: [
+                    "insurance",
+                    "the",
+                    "pension",
+                    "authorised"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Thị trường bảo hiểm bị chi phối hoàn toàn bởi các tổ chức hưu trí tư nhân.",
+                optionsBreakdown: [
+                    "A. insurance (danh từ): bảo hiểm.",
+                    "B. the (mạo từ): xác định.",
+                    "C. pension (danh từ): lương hưu.",
+                    "D. authorised (động từ quá khứ/phân từ): được cấp phép (bị dùng sai nghĩa)."
+                ],
+                whyCorrect: "Ngữ cảnh câu nói về việc thị trường bị chiếm giữ/thống trị bởi các tập đoàn lớn, do đó phải dùng động từ 'dominated' (bị chi phối) chứ không dùng 'authorised' (được ủy quyền/cấp phép).",
+                whyOthersWrong: "Các từ insurance, the, pension được kết hợp chính xác ngữ pháp."
+            },
+
+            // CHOOSE THE CORRECT ANSWER (6 - 22)
+            {
+                id: 6,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 6. The men _______ themselves with sticks and stones.",
+                options: [
+                    "eyed",
+                    "headed",
+                    "armed",
+                    "handed"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Những người đàn ông đã tự trang bị cho mình bằng gậy gộc và đá.",
+                optionsBreakdown: [
+                    "A. eyed (động từ): nhìn xoáy vào.",
+                    "B. headed (động từ): hướng về phía.",
+                    "C. armed (động từ quá khứ): trang bị vũ khí, phòng thân.",
+                    "D. handed (động từ): trao tay."
+                ],
+                whyCorrect: "Cấu trúc 'arm oneself with something' có nghĩa là tự trang bị vũ khí hoặc công cụ phòng thân cho bản thân.",
+                whyOthersWrong: "Các động từ eyed, headed, handed không kết hợp với 'themselves with sticks' để mang nghĩa tự trang bị vũ khí."
+            },
+            {
+                id: 7,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 7. The government has the _______ to regulate the economy.",
+                options: [
+                    "authority",
+                    "warrant",
+                    "weight",
+                    "licence"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Chính phủ có thẩm quyền điều tiết nền kinh tế.",
+                optionsBreakdown: [
+                    "A. authority (danh từ): thẩm quyền, quyền hạn chính thức.",
+                    "B. warrant (danh từ): lệnh bắt giam/khám xét.",
+                    "C. weight (danh từ): trọng lượng.",
+                    "D. licence (danh từ): giấy phép."
+                ],
+                whyCorrect: "Cụm từ cố định 'have the authority to do something' chỉ quyền hạn chính thức của cơ quan nhà nước.",
+                whyOthersWrong: "Warrant, weight, licence không ghép tạo thành cụm từ chỉ thẩm quyền điều hành kinh tế của chính phủ."
+            },
+            {
+                id: 8,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 8. The paper charged her _______ using the company's money for her own purposes.",
+                options: [
+                    "in",
+                    "on",
+                    "for",
+                    "with"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Tờ báo cáo buộc cô ấy đã sử dụng tiền của công ty cho mục đích cá nhân.",
+                optionsBreakdown: [
+                    "A. in (giới từ): trong.",
+                    "B. on (giới từ): trên.",
+                    "C. for (giới từ): cho.",
+                    "D. with (giới từ): đi với charge."
+                ],
+                whyCorrect: "Cấu trúc cố định 'charge somebody with V-ing/something' có nghĩa là cáo buộc/buộc tội ai đã làm việc gì.",
+                whyOthersWrong: "Các giới từ in, on, for không đi với động từ charge trong cấu trúc cáo buộc tội danh."
+            },
+            {
+                id: 9,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 9. The tower is _______ as a historic monument.",
+                options: [
+                    "schooled",
+                    "classed",
+                    "boarded",
+                    "booked"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Tòa tháp được xếp loại là một di tích lịch sử.",
+                optionsBreakdown: [
+                    "A. schooled (động từ dạng bị động): được giáo dục.",
+                    "B. classed (động từ dạng bị động): được xếp loại, phân loại.",
+                    "C. boarded (động từ dạng bị động): được lên tàu/đóng ván.",
+                    "D. booked (động từ dạng bị động): được đặt chỗ."
+                ],
+                whyCorrect: "Cấu trúc 'be classed as something' có nghĩa là được xếp vào hạng / phân loại là cái gì.",
+                whyOthersWrong: "Schooled, boarded, booked không mang nghĩa xếp loại di tích lịch sử."
+            },
+            {
+                id: 10,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 10. Am I to understand that it's alright to _______ a crime to prevent another crime?",
+                options: [
+                    "wreak",
+                    "perpetrate",
+                    "commit",
+                    "act"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Tôi có nên hiểu rằng việc phạm tội là đúng đắn để ngăn chặn một tội ác khác không?",
+                optionsBreakdown: [
+                    "A. wreak (động từ): gây ra (wreak havoc).",
+                    "B. perpetrate (động từ): phạm tội (ít tự nhiên hơn commit).",
+                    "C. commit (động từ): thực hiện, phạm (tội).",
+                    "D. act (động từ): hành động."
+                ],
+                whyCorrect: "Kết hợp từ cố định (Collocation) chuẩn xác và tự nhiên nhất luôn là 'commit a crime' (phạm tội).",
+                whyOthersWrong: "Wreak đi với havoc; act không đi với a crime; perpetrate không phải là collocation tự nhiên nhất trong ngữ cảnh này."
+            },
+            {
+                id: 11,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 11. They were _______ access to the information.",
+                options: [
+                    "blocked",
+                    "dismissed",
+                    "denied",
+                    "repelled"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Họ đã bị từ chối quyền truy cập vào thông tin.",
+                optionsBreakdown: [
+                    "A. blocked (động từ dạng bị động): bị chặn.",
+                    "B. dismissed (động từ dạng bị động): bị sa thải.",
+                    "C. denied (động từ dạng bị động): bị từ chối/không cấp cho.",
+                    "D. repelled (động từ dạng bị động): bị đẩy lùi."
+                ],
+                whyCorrect: "Cấu trúc bị động 'be denied access to something' có nghĩa là bị từ chối không cho phép truy cập hay tiếp cận thông tin.",
+                whyOthersWrong: "Blocked, dismissed, repelled không đi trực tiếp với 'access to information' trong cấu trúc bị động chỉ quyền hạn này."
+            },
+            {
+                id: 12,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 12. Although it was only his first offense, the judge decided to make a/an _______ of him and sentence him to prison.",
+                options: [
+                    "example",
+                    "quotation",
+                    "sample",
+                    "exemplar"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Mặc dù đó chỉ là vi phạm đầu tiên của anh ta, vị thẩm phán vẫn quyết định phạt anh ta để làm gương và tuyên án tù.",
+                optionsBreakdown: [
+                    "A. example (danh từ): ví dụ, tấm gương răn đe.",
+                    "B. quotation (danh từ): trích dẫn.",
+                    "C. sample (danh từ): mẫu thử.",
+                    "D. exemplar (danh từ): tấm gương mẫu mực."
+                ],
+                whyCorrect: "Thành ngữ cố định 'make an example of somebody' có nghĩa là trừng phạt ai đó công khai để làm gương răn đe kẻ khác.",
+                whyOthersWrong: "Quotation, sample, exemplar không tạo thành thành ngữ răn đe trong pháp lý."
+            },
+            {
+                id: 13,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 13. The President was _______ to resign.",
+                options: [
+                    "compelled",
+                    "forced",
+                    "affected",
+                    "enforced"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Tổng thống đã bị ép buộc phải từ chức.",
+                optionsBreakdown: [
+                    "A. compelled (động từ dạng bị động): bị thúc ép nội tâm.",
+                    "B. forced (động từ dạng bị động): bị ép buộc (bởi sức ép bên ngoài/chính trị).",
+                    "C. affected (động từ dạng bị động): bị ảnh hưởng.",
+                    "D. enforced (động từ dạng bị động): được thi hành (cho luật pháp)."
+                ],
+                whyCorrect: "Cụm từ chuẩn mực trong báo chí chính trị là 'be forced to resign' (bị ép phải từ chức dưới áp lực dư luận/đối thủ).",
+                whyOthersWrong: "Compelled nghiêng về nghĩa vụ nội tâm; affected không hợp nghĩa; enforced chỉ dùng cho luật lệ."
+            },
+            {
+                id: 14,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 14. Irish nationalists urged the British government to _______ an amnesty to all political prisoners.",
+                options: [
+                    "accord",
+                    "allow",
+                    "admit",
+                    "grant"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Những người theo chủ nghĩa dân tộc Ireland đã thúc giục chính phủ Anh ban hành lệnh ân xá cho tất cả tù nhân chính trị.",
+                optionsBreakdown: [
+                    "A. accord (động từ): ban cho.",
+                    "B. allow (động từ): cho phép.",
+                    "C. admit (động từ): thừa nhận.",
+                    "D. grant (động từ): ban, cấp (ân xá/quyền lợi)."
+                ],
+                whyCorrect: "Collocation chuẩn xác trong văn bản pháp lý chính thức là 'grant an amnesty' (ban hành lệnh ân xá).",
+                whyOthersWrong: "Accord, allow, admit không kết hợp thành cụm từ cố định chính thức với 'an amnesty'."
+            },
+            {
+                id: 15,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 15. It's not like she broke the _______, so go easy on her.",
+                options: [
+                    "edict",
+                    "canon",
+                    "law",
+                    "bylaw"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Đâu phải cô ấy phạm pháp đâu, nên hãy nhẹ tay với cô ấy thôi.",
+                optionsBreakdown: [
+                    "A. edict (danh từ): sắc lệnh.",
+                    "B. canon (danh từ): nguyên tắc/giáo luật.",
+                    "C. law (danh từ): luật pháp.",
+                    "D. bylaw (danh từ): luật lệ địa phương."
+                ],
+                whyCorrect: "Thành ngữ thông dụng nhất chỉ việc vi phạm pháp luật là 'break the law'.",
+                whyOthersWrong: "Edict, canon, bylaw không nằm trong câu nói cửa miệng quen thuộc 'break the law'."
+            },
+            {
+                id: 16,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 16. If you find a rate that works for you, _______ it in.",
+                options: [
+                    "lock",
+                    "bolt",
+                    "join",
+                    "clasp"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Nếu bạn tìm thấy một mức giá/lãi suất phù hợp với mình, hãy chốt cố định nó lại.",
+                optionsBreakdown: [
+                    "A. lock (động từ): khóa, chốt.",
+                    "B. bolt (động từ): cài chốt cửa.",
+                    "C. join (động từ): tham gia.",
+                    "D. clasp (động từ): siết chặt."
+                ],
+                whyCorrect: "Cụm động từ 'lock in a rate / lock it in' có nghĩa là chốt giữ cố định một mức giá hoặc lãi suất.",
+                whyOthersWrong: "Bolt, join, clasp không ghép với 'in' để tạo thành cụm từ chốt giữ mức giá cố định."
+            },
+            {
+                id: 17,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 17. These children scored significantly lower on intelligence tests than others in their peer _______.",
+                options: [
+                    "group",
+                    "class",
+                    "crowd",
+                    "party"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Những đứa trẻ này đạt điểm thấp hơn đáng kể trong các bài kiểm tra trí thông minh so với những đứa trẻ khác trong nhóm bạn cùng lứa.",
+                optionsBreakdown: [
+                    "A. group (danh từ): nhóm.",
+                    "B. class (danh từ): lớp học.",
+                    "C. crowd (danh từ): đám đông.",
+                    "D. party (danh từ): bữa tiệc."
+                ],
+                whyCorrect: "Thuật ngữ tâm lý học và xã hội học chỉ nhóm người cùng độ tuổi/trình độ là 'peer group' (nhóm bạn cùng lứa).",
+                whyOthersWrong: "Peer class, peer crowd, peer party không phải là thuật ngữ khoa học cố định."
+            },
+            {
+                id: 18,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 18. The rebels have _______ power.",
+                options: [
+                    "grasped",
+                    "grabbed",
+                    "seized",
+                    "sripped"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Phe nổi dậy đã cướp/nắm lấy chính quyền.",
+                optionsBreakdown: [
+                    "A. grasped (động từ quá khứ): nắm bắt (kiến thức).",
+                    "B. grabbed (động từ quá khứ): giật lấy.",
+                    "C. seized (động từ quá khứ): chiếm lấy, cướp lấy.",
+                    "D. sripped (từ sai chính tả): lột bỏ."
+                ],
+                whyCorrect: "Collocation chuẩn xác trong lịch sử và chính trị là 'seize power' (cướp/nắm quyền lực chính quyền).",
+                whyOthersWrong: "Grasped, grabbed, stripped không tạo thành thuật ngữ chính thức chỉ việc chiếm chính quyền."
+            },
+            {
+                id: 19,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 19. Now they could go _______ prison for as many as 12 years and have to fork over $5,000.",
+                options: [
+                    "above",
+                    "to",
+                    "at",
+                    "for"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Bây giờ họ có thể phải đi tù tới 12 năm và phải móc tiền túi trả 5.000 đô la.",
+                optionsBreakdown: [
+                    "A. above (giới từ): phía trên.",
+                    "B. to (giới từ): đến.",
+                    "C. at (giới từ): tại.",
+                    "D. for (giới từ): cho."
+                ],
+                whyCorrect: "Cụm từ cố định 'go to prison' có nghĩa là đi tù (chấp hành án phạt tù).",
+                whyOthersWrong: "Các giới từ above, at, for không đi với 'go ... prison' để chỉ việc chấp hành án tù."
+            },
+            {
+                id: 20,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 20. A video of the incident provoked _______ after it appeared on the internet and went viral.",
+                options: [
+                    "fury",
+                    "rage",
+                    "anger",
+                    "outrage"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Đoạn video về vụ việc đã gây ra sự phẫn nộ dữ dội sau khi xuất hiện trên mạng và lan truyền chóng mặt.",
+                optionsBreakdown: [
+                    "A. fury (danh từ): cơn giận dữ.",
+                    "B. rage (danh từ): sự giận dữ điên cuồng.",
+                    "C. anger (danh từ): sự tức giận.",
+                    "D. outrage (danh từ): sự phẫn nộ dư luận."
+                ],
+                whyCorrect: "Cụm từ kết hợp cố định trong truyền thông là 'provoke outrage' (gây ra làn sóng phẫn nộ trong công chúng).",
+                whyOthersWrong: "Fury, rage, anger thường đi với express/cause chứ không ghép thành collocation chuẩn 'provoke outrage'."
+            },
+            {
+                id: 21,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 21. You had no _______ to take money from my purse!",
+                options: [
+                    "licence",
+                    "droit",
+                    "due",
+                    "right"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Bạn không có quyền lấy tiền từ ví của tôi!",
+                optionsBreakdown: [
+                    "A. licence (danh từ): giấy phép.",
+                    "B. droit (danh từ tiếng Pháp): quyền.",
+                    "C. due (danh từ): khoản phải trả.",
+                    "D. right (danh từ): quyền hạn, quyền lợi."
+                ],
+                whyCorrect: "Cấu trúc cố định 'have no right to do something' có nghĩa là không có quyền/không được phép làm gì.",
+                whyOthersWrong: "Licence, droit, due không dùng trong mẫu câu giao tiếp chỉ quyền hạn cá nhân này."
+            },
+            {
+                id: 22,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 22. As a _______, I don't read detective novels.",
+                options: [
+                    "law",
+                    "rule",
+                    "role",
+                    "dictate"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Theo thói quen / Thông thường, tôi không đọc tiểu thuyết trinh thám.",
+                optionsBreakdown: [
+                    "A. law (danh từ): luật pháp.",
+                    "B. rule (danh từ): quy tắc, thói quen.",
+                    "C. role (danh từ): vai trò.",
+                    "D. dictate (danh từ): mệnh lệnh."
+                ],
+                whyCorrect: "Thành ngữ cố định 'As a rule' có nghĩa là thông thường, theo thói quen (normally / usually).",
+                whyOthersWrong: "Law, role, dictate không kết hợp với 'As a...' để mang nghĩa thói quen cá nhân."
+            },
+            {
+                id: 23,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 23. I will pass _______ tomorrow when I have seen all the papers.",
+                options: [
+                    "sentence",
+                    "verdict",
+                    "decision",
+                    "punishment"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Tôi sẽ tuyên án vào ngày mai khi tôi đã xem xét tất cả các giấy tờ.",
+                optionsBreakdown: [
+                    "A. sentence (danh từ): bản án, sự tuyên án.",
+                    "B. verdict (danh từ): phán quyết bồi thẩm đoàn.",
+                    "C. decision (danh từ): quyết định.",
+                    "D. punishment (danh từ): hình phạt."
+                ],
+                whyCorrect: "Động từ 'pass sentence (on somebody)' là thuật ngữ pháp lý cố định chỉ việc thẩm phán tuyên án phạt.",
+                whyOthersWrong: "Verdict dùng với 'reach/return a verdict'; decision dùng với 'make a decision'; punishment dùng với 'impose punishment'."
+            },
+            {
+                id: 24,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 24. Pirosmani's paintings were influenced by the _______ conditions, where he lived.",
+                options: [
+                    "communal",
+                    "social",
+                    "popular",
+                    "collective"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Các bức tranh của Pirosmani bị ảnh hưởng bởi điều kiện xã hội nơi ông sinh sống.",
+                optionsBreakdown: [
+                    "A. communal (tính từ): thuộc về cộng đồng.",
+                    "B. social (tính từ): thuộc về xã hội.",
+                    "C. popular (tính từ): phổ biến.",
+                    "D. collective (tính từ): tập thể."
+                ],
+                whyCorrect: "Cụm từ cố định 'social conditions' chỉ hoàn cảnh/điều kiện xã hội.",
+                whyOthersWrong: "Communal, popular, collective không kết hợp với 'conditions' để chỉ hoàn cảnh sống xã hội chung."
+            },
+            {
+                id: 25,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 25. She's always bringing _______ her health problems.",
+                options: [
+                    "down",
+                    "round",
+                    "about",
+                    "up"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Cô ấy lúc nào cũng đề cập đến các vấn đề sức khỏe của mình.",
+                optionsBreakdown: [
+                    "A. bring down (cụm động từ): hạ bệ, giảm giá.",
+                    "B. bring round (cụm động từ): làm ai tỉnh lại.",
+                    "C. bring about (cụm động từ): gây ra, dẫn đến.",
+                    "D. bring up (cụm động từ): đề cập, nêu ra."
+                ],
+                whyCorrect: "Cụm động từ 'bring up something' có nghĩa là đề cập hoặc đưa ra một chủ đề để trò chuyện.",
+                whyOthersWrong: "Bring down (hạ bệ), bring round (làm tỉnh lại), bring about (dẫn đến) không mang nghĩa đề cập chủ đề."
+            },
+            {
+                id: 26,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 26. The rebels are _______ arms against their own government.",
+                options: [
+                    "taking of",
+                    "taking in",
+                    "taking after",
+                    "taking up"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Phe nổi dậy đang cầm vũ khí đứng lên chống lại chính phủ của chính họ.",
+                optionsBreakdown: [
+                    "A. taking of (cụm từ sai): không hợp ngữ pháp.",
+                    "B. taking in (cụm động từ): lừa gạt, cho ở nhờ.",
+                    "C. taking after (cụm động từ): giống ai đó.",
+                    "D. taking up (cụm động từ): cầm lấy, bắt đầu."
+                ],
+                whyCorrect: "Thành ngữ cố định 'take up arms against somebody' có nghĩa là cầm vũ khí nổi dậy chống lại ai.",
+                whyOthersWrong: "Taking of, taking in, taking after không tạo thành thành ngữ đứng lên vũ trang."
+            },
+            {
+                id: 27,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 27. Nowadays our _______ is channelled into sports.",
+                options: [
+                    "aggression",
+                    "attack",
+                    "assault",
+                    "force"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Ngày nay, sự hăng máu / tính hiếu chiến của chúng ta được giải tỏa vào thể thao.",
+                optionsBreakdown: [
+                    "A. aggression (danh từ): tính hiếu chiến, sự hăng máu.",
+                    "B. attack (danh từ): cuộc tấn công.",
+                    "C. assault (danh từ): sự hành hung.",
+                    "D. force (danh từ): lực lượng."
+                ],
+                whyCorrect: "Cụm từ cố định trong tâm lý học 'channel one's aggression into something' nghĩa là chuyển hướng năng lượng hiếu chiến vào thể thao.",
+                whyOthersWrong: "Attack, assault, force không miêu tả năng lượng tâm lý tự nhiên được giải tỏa qua thể thao."
+            },
+            {
+                id: 28,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 28. Her face was gentle and _______.",
+                options: [
+                    "cautious",
+                    "careful",
+                    "benign",
+                    "aggressive"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Gương mặt cô ấy dịu dàng và hiền từ.",
+                optionsBreakdown: [
+                    "A. cautious (tính từ): thận trọng.",
+                    "B. careful (tính từ): cẩn thận.",
+                    "C. benign (tính từ): hiền từ, nhân hậu.",
+                    "D. aggressive (tính từ): hung hăng."
+                ],
+                whyCorrect: "Tính từ 'benign' miêu tả nét mặt hiền hậu, nhân từ, đi song song cùng tính từ 'gentle' (dịu dàng).",
+                whyOthersWrong: "Cautious và careful chỉ sự cẩn trọng; aggressive chỉ sự hung hăng (ngược nghĩa với gentle)."
+            },
+            {
+                id: 29,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 29. 'Get back to your room,' she _______.",
+                options: [
+                    "instructed",
+                    "required",
+                    "told",
+                    "commanded"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: 'Quay về phòng của anh ngay,' cô ấy ra lệnh.",
+                optionsBreakdown: [
+                    "A. instructed (động từ): hướng dẫn.",
+                    "B. required (động từ): yêu cầu.",
+                    "C. told (động từ): nói (cần tân ngữ tell somebody).",
+                    "D. commanded (động từ): ra lệnh."
+                ],
+                whyCorrect: "Câu nói mang tính mệnh lệnh đanh thép, động từ 'commanded' miêu tả khẩu lệnh trực tiếp.",
+                whyOthersWrong: "Told đứng một mình thiếu tân ngữ; instructed nghiêng về hướng dẫn; required chỉ quy định chung."
+            },
+            {
+                id: 30,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 30. Children under 16 cannot give _______ to medical treatment.",
+                options: [
+                    "agreement",
+                    "consent",
+                    "acceptance",
+                    "approbation"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Trẻ em dưới 16 tuổi không thể tự đưa ra sự chấp thuận đối với việc điều trị y tế.",
+                optionsBreakdown: [
+                    "A. agreement (danh từ): sự thỏa thuận.",
+                    "B. consent (danh từ): sự đồng ý chấp thuận y khoa.",
+                    "C. acceptance (danh từ): sự chấp nhận.",
+                    "D. approbation (danh từ): sự tán thành."
+                ],
+                whyCorrect: "Thuật ngữ y khoa và pháp lý 'give consent to medical treatment' có nghĩa là đưa ra sự chấp thuận điều trị.",
+                whyOthersWrong: "Agreement, acceptance, approbation không đi trong thuật ngữ chấp thuận y tế chính thức."
+            },
+            {
+                id: 31,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 31. The country suffered at the hands of a series of military _______.",
+                options: [
+                    "ruler",
+                    "dictator",
+                    "oppressor",
+                    "autocrat"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Đất nước đã chịu khổ dưới tay một loạt các kẻ độc tài quân sự.",
+                optionsBreakdown: [
+                    "A. ruler (danh từ): nhà cầm quyền.",
+                    "B. dictator (danh từ): kẻ độc tài.",
+                    "C. oppressor (danh từ): kẻ áp bức.",
+                    "D. autocrat (danh từ): kẻ chuyên quyền."
+                ],
+                whyCorrect: "Collocation chuẩn nhất trong lịch sử chính trị là 'military dictator' (kẻ độc tài quân sự / nhà quân phiệt).",
+                whyOthersWrong: "Ruler, oppressor, autocrat ít khi ghép thành thuật ngữ cố định 'military dictator'."
+            },
+            {
+                id: 32,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 32. It's the job of the police to _______ the law.",
+                options: [
+                    "enforce",
+                    "coerce",
+                    "execute",
+                    "compel"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Nhiệm vụ của cảnh sát là thực thi pháp luật.",
+                optionsBreakdown: [
+                    "A. enforce (động từ): thực thi, bắt chấp hành.",
+                    "B. coerce (động từ): ép buộc.",
+                    "C. execute (động từ): thi hành án/hành hình.",
+                    "D. compel (động từ): cưỡng ép."
+                ],
+                whyCorrect: "Collocation cố định chỉ chức năng nhiệm vụ của lực lượng cảnh sát là 'enforce the law'.",
+                whyOthersWrong: "Coerce, execute, compel không đi với 'the law' để chỉ nhiệm vụ bảo vệ và thực thi luật pháp."
+            },
+            {
+                id: 33,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 33. Infant mortality was extremely high and the upper classes were not _______.",
+                options: [
+                    "minus",
+                    "liable",
+                    "free",
+                    "exempt"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Tỷ lệ tử vong ở trẻ sơ sinh cực kỳ cao và tầng lớp thượng lưu cũng không được miễn trừ / không phải là ngoại lệ.",
+                optionsBreakdown: [
+                    "A. minus (tính từ/giới từ): trừ ra.",
+                    "B. liable (tính từ): có nghĩa vụ pháp lý.",
+                    "C. free (tính từ): tự do.",
+                    "D. exempt (tính từ): được miễn trừ."
+                ],
+                whyCorrect: "Cấu trúc 'be exempt (from something)' nghĩa là được miễn trừ, không bị ảnh hưởng bởi tai họa chung.",
+                whyOthersWrong: "Minus không làm tính từ đứng sau be; liable đi với for/to; free đi với from nhưng mang nghĩa tự do không bị ràng buộc."
+            },
+            {
+                id: 34,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 34. The government has _______ a ban on the sale of handguns.",
+                options: [
+                    "applied",
+                    "forced",
+                    "imposed",
+                    "urged"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Chính phủ đã áp đặt một lệnh cấm bán súng ngắn.",
+                optionsBreakdown: [
+                    "A. applied (động từ quá khứ): áp dụng.",
+                    "B. forced (động từ quá khứ): bắt buộc.",
+                    "C. imposed (động từ quá khứ): áp đặt (ban hành lệnh cấm).",
+                    "D. urged (động từ quá khứ): thúc giục."
+                ],
+                whyCorrect: "Collocation chuẩn xác trong quản lý nhà nước là 'impose a ban on something' (áp đặt lệnh cấm đối với cái gì).",
+                whyOthersWrong: "Applied đi với to; forced đi với to V; urged đi với on/to V."
+            },
+            {
+                id: 35,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 35. The government was forced to _______ from implementing these proposals.",
+                options: [
+                    "back down",
+                    "slow down",
+                    "turn down",
+                    "turn off"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Chính phủ đã bị buộc phải nhượng bộ / rút lui không thực hiện các đề xuất này.",
+                optionsBreakdown: [
+                    "A. back down (cụm động từ): nhượng bộ, rút lui khỏi ý định.",
+                    "B. slow down (cụm động từ): giảm tốc độ.",
+                    "C. turn down (cụm động từ): từ chối.",
+                    "D. turn off (cụm động từ): tắt máy."
+                ],
+                whyCorrect: "Cụm động từ 'back down from V-ing' nghĩa là chịu nhượng bộ / rút lui không tiếp tục kế hoạch do bị phản đối.",
+                whyOthersWrong: "Slow down (chậm lại) và turn down (từ chối) không đi với cấu trúc 'from implementing'."
+            },
+            {
+                id: 36,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 36. They have adopted local customs and tried to _______ with the community.",
+                options: [
+                    "bring in",
+                    "blend in",
+                    "break in",
+                    "chip in"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Họ đã tiếp nhận các phong tục địa phương và cố gắng hòa nhập với cộng đồng.",
+                optionsBreakdown: [
+                    "A. bring in (cụm động từ): mang lại lợi nhuận, giới thiệu luật.",
+                    "B. blend in (cụm động từ): hòa nhập, thích nghi.",
+                    "C. break in (cụm động từ): đột nhập.",
+                    "D. chip in (cụm động từ): góp tiền chung."
+                ],
+                whyCorrect: "Cụm động từ 'blend in with somebody/community' có nghĩa là hòa nhập vào cộng đồng.",
+                whyOthersWrong: "Bring in, break in, chip in không mang nghĩa hòa nhập lối sống với cộng đồng."
+            },
+            {
+                id: 37,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 37. Major spending is required to _______ substantial improvements in housing.",
+                options: [
+                    "bring up",
+                    "bring through",
+                    "bring round",
+                    "bring about"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Cần có khoản chi tiêu lớn để mang lại / tạo ra những cải thiện đáng kể về nhà ở.",
+                optionsBreakdown: [
+                    "A. bring up (cụm động từ): nuôi dưỡng, đề cập.",
+                    "B. bring through (cụm động từ): giúp vượt qua khó khăn.",
+                    "C. bring round (cụm động từ): thuyết phục, làm tỉnh lại.",
+                    "D. bring about (cụm động từ): gây ra, mang lại."
+                ],
+                whyCorrect: "Cụm động từ 'bring about something' nghĩa là gây ra, mang lại sự thay đổi hay cải thiện.",
+                whyOthersWrong: "Bring up, bring through, bring round không mang nghĩa tạo ra kết quả sự cải thiện."
+            },
+            {
+                id: 38,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 38. The school is _______ on smoking.",
+                options: [
+                    "getting back",
+                    "running over",
+                    "cracking down",
+                    "pulling out"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Nhà trường đang thắt chặt / truy quét gắt gao hành vi hút thuốc.",
+                optionsBreakdown: [
+                    "A. getting back (cụm động từ): quay trở lại.",
+                    "B. running over (cụm động từ): cán qua.",
+                    "C. cracking down (cụm động từ): mạnh tay trừng trị, thắt chặt kỷ luật.",
+                    "D. pulling out (cụm động từ): rút khỏi."
+                ],
+                whyCorrect: "Cụm động từ 'crack down on something' nghĩa là thi hành biện pháp nghiêm khắc trừng phạt hành vi vi phạm.",
+                whyOthersWrong: "Getting back, running over, pulling out không đi với 'on smoking' mang nghĩa xử lý vi phạm."
+            },
+            {
+                id: 39,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 39. The Labour Party _______ again in 2001.",
+                options: [
+                    "got at",
+                    "got in",
+                    "got on",
+                    "got over"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Đảng Lao động đã trúng cử / đắc cử một lần nữa vào năm 2001.",
+                optionsBreakdown: [
+                    "A. got at (cụm động từ): chỉ trích, gợi ý.",
+                    "B. got in (cụm động từ): trúng cử, đắc cử.",
+                    "C. got on (cụm động từ): hòa thuận, lên xe.",
+                    "D. got over (cụm động từ): vượt qua nỗi đau."
+                ],
+                whyCorrect: "Cụm động từ 'get in' dùng riêng cho bầu cử chính trị có nghĩa là trúng cử / đắc cử.",
+                whyOthersWrong: "Got at, got on, got over không mang nghĩa đắc cử trong cuộc bầu cử."
+            },
+            {
+                id: 40,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 40. He was charged with manslaughter, but _______.",
+                options: [
+                    "got off",
+                    "saw off",
+                    "went off",
+                    "put off"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Anh ta bị cáo buộc tội vô ý làm chết người, nhưng đã trắng án / thoát tội.",
+                optionsBreakdown: [
+                    "A. got off (cụm động từ): thoát phạt, thoát tội.",
+                    "B. saw off (cụm động từ): tiễn đưa.",
+                    "C. went off (cụm động từ): nổ tung, ôi thiu.",
+                    "D. put off (cụm động từ): hoãn lại."
+                ],
+                whyCorrect: "Cụm động từ 'get off' trong tòa án có nghĩa là thoát án phạt hoặc chỉ nhận mức phạt rất nhẹ.",
+                whyOthersWrong: "Saw off, went off, put off không mang nghĩa thoát tội tại tòa án."
+            },
+            {
+                id: 41,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 41. The champion refused to _______ and went on to win the set.",
+                options: [
+                    "give away",
+                    "give in",
+                    "give back",
+                    "give out"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Nhà vô địch từ chối đầu hàng / chịu thua và tiếp tục giành chiến thắng ở séc đấu.",
+                optionsBreakdown: [
+                    "A. give away (cụm động từ): tiết lộ bí mật, cho đi miễn phí.",
+                    "B. give in (cụm động từ): đầu hàng, chịu thua.",
+                    "C. give back (cụm động từ): trả lại.",
+                    "D. give out (cụm động từ): cạn kiệt, phát ra."
+                ],
+                whyCorrect: "Cụm động từ 'give in' có nghĩa là chịu thua, đầu hàng trước đối thủ.",
+                whyOthersWrong: "Give away (tiết lộ), give back (trả lại), give out (phát ra) không phù hợp trong thi đấu thể thao."
+            },
+            {
+                id: 42,
+                section: "CHOOSE THE CORRECT ANSWER",
+                instruction: "CHOOSE THE CORRECT ANSWER (Chọn đáp án đúng nhất)",
+                text: "Question 42. In tonight's speech, the minister is expected to _______ at critics who have attacked her handling of the crisis.",
+                options: [
+                    "hit up",
+                    "hit on",
+                    "hit for",
+                    "hit back"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Trong bài phát biểu tối nay, bộ trưởng dự kiến sẽ đáp trả / phản pháo những kẻ chỉ trích đã tấn công cách bà xử lý khủng hoảng.",
+                optionsBreakdown: [
+                    "A. hit up (cụm động từ): xin tiền ai.",
+                    "B. hit on (cụm động từ): tán tỉnh, nảy ra ý tưởng.",
+                    "C. hit for (cụm từ sai): không có cụm này.",
+                    "D. hit back (cụm động từ): đáp trả, phản công."
+                ],
+                whyCorrect: "Cụm động từ 'hit back at somebody' có nghĩa là công kích lại, đáp trả dư luận/kẻ chỉ trích.",
+                whyOthersWrong: "Hit up, hit on không mang nghĩa phản pháo sự chỉ trích."
+            },
+
+            // SYNONYM (43 - 45)
+            {
+                id: 43,
+                section: "SYNONYM",
+                instruction: "SYNONYM (Từ đồng nghĩa)",
+                text: "Question 43. He hated being in the army because he had to obey commands.",
+                options: [
+                    "ripostes",
+                    "replies",
+                    "orders",
+                    "responses"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Anh ấy ghét ở trong quân đội vì anh ấy phải tuân theo các mệnh lệnh.",
+                optionsBreakdown: [
+                    "A. ripostes (danh từ số nhiều): lời đáp trả hóm hỉnh.",
+                    "B. replies (danh từ số nhiều): câu trả lời.",
+                    "C. orders (danh từ số nhiều): mệnh lệnh quân sự.",
+                    "D. responses (danh từ số nhiều): sự phản hồi."
+                ],
+                whyCorrect: "Từ 'command' (mệnh lệnh) đồng nghĩa hoàn toàn với 'order' trong môi trường quân đội.",
+                whyOthersWrong: "Ripostes (đáp trả), replies (trả lời), responses (phản hồi) không mang tính mệnh lệnh bắt buộc."
+            },
+            {
+                id: 44,
+                section: "SYNONYM",
+                instruction: "SYNONYM (Từ đồng nghĩa)",
+                text: "Question 44. The judge threatened to throw the book at him if he committed another offense.",
+                options: [
+                    "punish",
+                    "commend",
+                    "compliment",
+                    "applaud"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Vị thẩm phán đe dọa sẽ trừng phạt nghiêm khắc anh ta nếu anh ta phạm một tội khác.",
+                optionsBreakdown: [
+                    "A. punish (động từ): trừng phạt.",
+                    "B. commend (động từ): khen ngợi.",
+                    "C. compliment (động từ): khen ngợi.",
+                    "D. applaud (động từ): vỗ tay tán thưởng."
+                ],
+                whyCorrect: "Thành ngữ 'throw the book at somebody' có nghĩa là trừng phạt ai đó với mức án tối đa/nghiêm khắc nhất, đồng nghĩa với 'punish'.",
+                whyOthersWrong: "Commend, compliment, applaud đều chỉ sự khen ngợi, trái ngược với hình phạt."
+            },
+            {
+                id: 45,
+                section: "SYNONYM",
+                instruction: "SYNONYM (Từ đồng nghĩa)",
+                text: "Question 45. He's got the committee firmly under his thumb - they agree to whatever he asks.",
+                options: [
+                    "free",
+                    "controlled",
+                    "unfreeze",
+                    "unblock"
+                ],
+                correctIndex: 1,
+                translation: "Dịch nghĩa toàn câu: Anh ấy hoàn toàn khống chế / kiểm soát ủy ban - họ đồng ý với bất cứ điều gì anh ấy yêu cầu.",
+                optionsBreakdown: [
+                    "A. free (tính từ): tự do.",
+                    "B. controlled (tính từ/phân từ): bị kiểm soát, khống chế.",
+                    "C. unfreeze (động từ): làm tan chảy.",
+                    "D. unblock (động từ): bỏ phong tỏa."
+                ],
+                whyCorrect: "Thành ngữ 'under one's thumb' có nghĩa là bị hoàn toàn khống chế/kiểm soát dưới tay ai, đồng nghĩa với 'controlled'.",
+                whyOthersWrong: "Free (tự do) là từ trái nghĩa; unfreeze và unblock không liên quan."
+            },
+
+            // WORD FORMATION (46 - 48)
+            {
+                id: 46,
+                section: "WORD FORMATION",
+                instruction: "WORD FORMATION (Từ loại)",
+                text: "Question 46. A president needs popular support in order to _______ effectively.",
+                options: [
+                    "governess",
+                    "governmental",
+                    "government",
+                    "govern"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Một vị tổng thống cần sự ủng hộ của nhân dân để cai trị / cầm quyền một cách hiệu quả.",
+                optionsBreakdown: [
+                    "A. governess (danh từ): gia sư nữ.",
+                    "B. governmental (tính từ): thuộc về chính phủ.",
+                    "C. government (danh từ): chính phủ.",
+                    "D. govern (động từ nguyên mẫu): cai trị, cầm quyền."
+                ],
+                whyCorrect: "Sau cấu trúc 'in order to' ta cần một động từ nguyên mẫu (V-bare). Do đó chọn động từ 'govern'.",
+                whyOthersWrong: "Governess và government là danh từ; governmental là tính từ."
+            },
+            {
+                id: 47,
+                section: "WORD FORMATION",
+                instruction: "WORD FORMATION (Từ loại)",
+                text: "Question 47. Has Manchester United's _______ of English football finally come to an end?",
+                options: [
+                    "dominance",
+                    "dominate",
+                    "dominant",
+                    "predominantly"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Liệu sự thống trị bóng đá Anh của Manchester United cuối cùng đã đi đến hồi kết?",
+                optionsBreakdown: [
+                    "A. dominance (danh từ): sự thống trị, thế thượng phong.",
+                    "B. dominate (động từ): thống trị.",
+                    "C. dominant (tính từ): có ưu thế.",
+                    "D. predominantly (trạng từ): một cách chủ yếu."
+                ],
+                whyCorrect: "Sau sở hữu cách 's (Manchester United's) ta bắt buộc phải dùng một danh từ. Do đó chọn danh từ 'dominance'.",
+                whyOthersWrong: "Dominate là động từ; dominant là tính từ; predominantly là trạng từ."
+            },
+            {
+                id: 48,
+                section: "WORD FORMATION",
+                instruction: "WORD FORMATION (Từ loại)",
+                text: "Question 48. He is a very _______ person who is often getting into fights.",
+                options: [
+                    "argue",
+                    "arguably",
+                    "argumentative",
+                    "argument"
+                ],
+                correctIndex: 2,
+                translation: "Dịch nghĩa toàn câu: Anh ta là một người rất thích tranh cãi, người thường xuyên vướng vào các cuộc xô xát.",
+                optionsBreakdown: [
+                    "A. argue (động từ): tranh cãi.",
+                    "B. arguably (trạng từ): có thể tranh cãi rằng.",
+                    "C. argumentative (tính từ): thích tranh cãi, hay cãi bướng.",
+                    "D. argument (danh từ): sự tranh cãi."
+                ],
+                whyCorrect: "Đứng sau trạng từ chỉ mức độ 'very' và trước danh từ 'person', ta cần một tính từ miêu tả tính cách con người ('argumentative').",
+                whyOthersWrong: "Argue là động từ; arguably là trạng từ; argument là danh từ."
+            },
+
+            // ANTONYM (49 - 50)
+            {
+                id: 49,
+                section: "ANTONYM",
+                instruction: "ANTONYM (Tìm từ Trái nghĩa)",
+                text: "Question 49. These policies have been widely advocated.",
+                options: [
+                    "opposed",
+                    "assisted",
+                    "approved",
+                    "recommended"
+                ],
+                correctIndex: 0,
+                translation: "Dịch nghĩa toàn câu: Những chính sách này đã được ủng hộ rộng rãi.",
+                optionsBreakdown: [
+                    "A. opposed (động từ quá khứ/phân từ): phản đối.",
+                    "B. assisted (động từ quá khứ/phân từ): hỗ trợ.",
+                    "C. approved (động từ quá khứ/phân từ): phê duyệt.",
+                    "D. recommended (động từ quá khứ/phân từ): đề xuất, khuyến nghị."
+                ],
+                whyCorrect: "Động từ 'advocate' có nghĩa là ủng hộ, tán thành. Do đó từ TRÁI NGHĨA hoàn toàn là 'opposed' (phản đối).",
+                whyOthersWrong: "Assisted (hỗ trợ), approved (tán thành), recommended (khuyên dùng) đều mang nghĩa ủng hộ/đồng ý."
+            },
+            {
+                id: 50,
+                section: "ANTONYM",
+                instruction: "ANTONYM (Tìm từ Trái nghĩa)",
+                text: "Question 50. They were forced to submit to Bulgarian rule.",
+                options: [
+                    "accept",
+                    "abide",
+                    "comply",
+                    "disobey"
+                ],
+                correctIndex: 3,
+                translation: "Dịch nghĩa toàn câu: Họ đã bị buộc phải khuất phục / tuân theo sự cai trị của Bulgaria.",
+                optionsBreakdown: [
+                    "A. accept (động từ): chấp nhận.",
+                    "B. abide (động từ): tuân theo (abide by).",
+                    "C. comply (động từ): tuân thủ (comply with).",
+                    "D. disobey (động từ): không tuân theo, chống đối."
+                ],
+                whyCorrect: "Động từ 'submit (to)' có nghĩa là quy phục, tuân phục. Do đó từ TRÁI NGHĨA hoàn toàn là 'disobey' (chống đối, không tuân theo).",
+                whyOthersWrong: "Accept, abide, comply mang nghĩa tuân thủ, chấp nhận (đồng nghĩa)."
+            }
+        ];
+
+        // Web Audio Synth
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+        }
+
+        function playDingSound() {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const now = audioCtx.currentTime;
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc1.type = 'sine';
+            osc2.type = 'triangle';
+
+            osc1.frequency.setValueAtTime(523.25, now);
+            osc1.frequency.exponentialRampToValueAtTime(1046.50, now + 0.15);
+
+            osc2.frequency.setValueAtTime(659.25, now);
+            osc2.frequency.exponentialRampToValueAtTime(1318.51, now + 0.15);
+
+            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+
+            osc1.connect(gain);
+            osc2.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc1.start(now);
+            osc2.start(now);
+            osc1.stop(now + 0.4);
+            osc2.stop(now + 0.4);
+        }
+
+        function playWrongSound() {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(180, now);
+            osc.frequency.linearRampToValueAtTime(110, now + 0.3);
+
+            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.35);
+        }
+
+        function launchConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const pieces = [];
+            const numberOfPieces = 100;
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#00D26A', '#2196f3', '#03a9f4', '#ffeb3b', '#ff9800'];
+
+            for (let i = 0; i < numberOfPieces; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    rotation: Math.random() * 360,
+                    size: Math.random() * 10 + 6,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 3 + 2,
+                    oscSpeed: Math.random() * 0.05 + 0.02,
+                    oscStep: Math.random() * Math.PI
+                });
+            }
+
+            let frames = 0;
+            function update() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.y += p.speed;
+                    p.oscStep += p.oscSpeed;
+                    p.x += Math.sin(p.oscStep) * 2;
+                    p.rotation += 2;
+
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate((p.rotation * Math.PI) / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                });
+
+                frames++;
+                if (frames < 120) {
+                    requestAnimationFrame(update);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            update();
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        const userAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            let currentSection = "";
+
+            rawQuizData.forEach((q) => {
+                if (q.section !== currentSection) {
+                    currentSection = q.section;
+                    const secHeader = document.createElement('div');
+                    secHeader.className = 'section-header-title';
+                    secHeader.innerText = currentSection;
+                    container.appendChild(secHeader);
+                }
+
+                // Shuffle options A, B, C, D
+                const optionsObj = q.options.map((opt, origIdx) => ({
+                    text: opt,
+                    originalIndex: origIdx
+                }));
+                const shuffledOptions = shuffleArray(optionsObj);
+
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `q-card-${q.id}`;
+
+                let optionsHTML = '';
+                shuffledOptions.forEach((optObj, btnIdx) => {
+                    const letter = String.fromCharCode(65 + btnIdx);
+                    optionsHTML += `
+                        <button class="option-btn" 
+                                id="btn-${q.id}-${optObj.originalIndex}" 
+                                onclick="handleSelect(${q.id}, ${optObj.originalIndex}, ${q.correctIndex})">
+                            <strong style="margin-right:8px; min-width:24px;">${letter}.</strong> ${optObj.text}
+                        </button>
+                    `;
+                });
+
+                let breakdownHTML = q.optionsBreakdown.map(item => `<div class="option-breakdown-item">• ${item}</div>`).join('');
+
+                card.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">Câu ${q.id}</span>
+                        <span class="question-instruction">${q.instruction}</span>
+                    </div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options-grid">
+                        ${optionsHTML}
+                    </div>
+                    
+                    <div class="explanation-box" id="exp-${q.id}">
+                        <div class="explanation-title">💡 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG ENGLISH</div>
+                        
+                        <div class="exp-section">
+                            <div class="exp-section-title">1. Dịch nghĩa toàn câu:</div>
+                            <p style="color:#2D3748; font-weight:700;">${q.translation}</p>
+                        </div>
+
+                        <div class="exp-section">
+                            <div class="exp-section-title">2. Phân tích ngữ pháp / từ vựng cả 4 đáp án:</div>
+                            <div class="options-breakdown-list">${breakdownHTML}</div>
+                        </div>
+
+                        <div class="exp-section">
+                            <div class="exp-section-title">3. Tại sao đáp án đúng lại đúng?</div>
+                            <p style="color:#276749; font-weight:800;">${q.whyCorrect}</p>
+                        </div>
+
+                        <div class="exp-section">
+                            <div class="exp-section-title">4. Tại sao các đáp án còn lại sai?</div>
+                            <p style="color:#C53030; font-weight:800;">${q.whyOthersWrong}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function handleSelect(questionId, selectedIdx, correctIdx) {
+            if (userAnswers[questionId] !== undefined) return;
+
+            userAnswers[questionId] = selectedIdx;
+
+            const card = document.getElementById(`q-card-${questionId}`);
+            const selectedBtn = document.getElementById(`btn-${questionId}-${selectedIdx}`);
+            const correctBtn = document.getElementById(`btn-${questionId}-${correctIdx}`);
+            const expBox = document.getElementById(`exp-${questionId}`);
+
+            const allBtns = card.querySelectorAll('.option-btn');
+            allBtns.forEach(btn => btn.disabled = true);
+
+            if (selectedIdx === correctIdx) {
+                selectedBtn.classList.add('correct');
+                playDingSound();
+                launchConfetti();
+            } else {
+                selectedBtn.classList.add('wrong');
+                correctBtn.classList.add('correct');
+                card.classList.add('shake');
+                playWrongSound();
+            }
+
+            expBox.style.display = 'block';
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const total = rawQuizData.length;
+
+            rawQuizData.forEach(q => {
+                if (userAnswers[q.id] === q.correctIndex) {
+                    score++;
+                }
+            });
+
+            const percentage = (score / total) * 100;
+            let feedback = "";
+
+            if (percentage < 50) {
+                feedback = "“Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”";
+            } else if (percentage >= 60 && percentage <= 80) {
+                feedback = "“Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!”";
+            } else {
+                feedback = "“Làm tốt lắm, con cố gắng rinh điểm 10 ở lần sau nha!”";
+            }
+
+            document.getElementById('scoreDisplay').innerText = `${score} / ${total}`;
+            document.getElementById('feedbackDisplay').innerText = feedback;
+            document.getElementById('scoreModal').style.display = 'flex';
+
+            if (percentage >= 80) {
+                launchConfetti();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('scoreModal').style.display = 'none';
+        }
+
+        window.onload = () => {
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
